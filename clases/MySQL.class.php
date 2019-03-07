@@ -28,6 +28,10 @@
 				return $query;
 			
 		}
+		public function omaewamoushindeiru($nani)
+		{
+			
+		}
 		public function query_single_object($consult){
             
             if($result = $this->query($consult))
