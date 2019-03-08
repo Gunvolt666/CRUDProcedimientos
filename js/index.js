@@ -227,6 +227,7 @@ $(document).on('click', '#btn_insertar', function(e){
 				if(data == true){
 					toast1("ATENCION", "Usuario Registrado", 8000, "success");
 					loadData();
+					Limpieza();
 					$('#exampleModal').modal('hide');
 				}
 				else{

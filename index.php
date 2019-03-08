@@ -102,7 +102,7 @@
       
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-        <button id="btn_insertar" onclick="Limpieza()" type="button" class="btn btn-primary">Guardar Registro</button>
+        <button id="btn_insertar" type="button" class="btn btn-primary">Guardar Registro</button>
       </div>
       </form>
 
