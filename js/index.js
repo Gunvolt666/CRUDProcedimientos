@@ -79,7 +79,7 @@ function editPersona(id){
 					
 					$('#direccion_m').val(data[0].direccion);
 					$('#telefono_m').val(data[0].telefono);
-					toast1("Hey You!!!", "Es true", 8000, "success");
+					
 					console.log(data);
 			}
 			else
@@ -91,7 +91,9 @@ function editPersona(id){
 }
 	
 $(document).on('click', '#btn_modificar', function(e)
-{
+{	
+	var mensaje;
+	var opcion = confirm("Estas seguro que quieres modificar este usuario?");
 	var info = { id: $('#id').val(),primer_ap_m: $('#primer_ap_m').val(), segundo_ap_m: $('#segundo_ap_m').val(), nombres_m: $('#nombres_m').val(), direccion_m: $('#direccion_m').val(), telefono_m: $('#telefono_m').val() };
 	$.ajax({
 		url: 'routes/routePersonas.php',
@@ -111,23 +113,26 @@ $(document).on('click', '#btn_modificar', function(e)
 		success: function(data)
 		{
 			console.log(data);
+			if (opcion == true) 
 
-			if (data == true) 
 			{
 				toast1("Hey You!!!", "Usuario Modificado ", 8000, "success");
 				
 				$('#modalModificar').modal('hide');
-			}
-			else
+				loadData();
+				if (data == true) 
 			{
-				toast1("Danger!!","Algo anda mal", 8000, "error");
+
+				
 			}
+			}
+		
 		}
 	});
 });
 
 function deletePersona(id){
-	alert("Estas dentro de la funcion");
+	
 	var parametro = {id: id}
 	var mensaje;
 	var opcion = confirm("Va a dar de baja un usuario, desea continuar?");
@@ -139,7 +144,7 @@ function deletePersona(id){
 		dataType: 'JSON',
 			beforSend: function()
 		{
-			alert("funciona");
+			
 		},
 		success: function(data)
 		{
@@ -147,7 +152,7 @@ function deletePersona(id){
 			{
 				if (data) 
 			{
-				alert("Todo bien");
+				
 				toast1("Atencion!!", "Se a dado de baja este usuario", 8000, "Success");
 				loadData();
 			}
@@ -163,7 +168,8 @@ function deletePersona(id){
 
 function reactivaPersona(id)
 {
-	alert("Estas dentro de la funcion reactivar");
+	var mensaje;
+	var opcion = confirm("Seguro que quieres reactivar este usuario");
 	var parametro = {id:id}
 
 	$.ajax({
@@ -174,16 +180,20 @@ function reactivaPersona(id)
 		dataType: 'JSON',
 		beforeSend: function()
 		{
-			alert("Funciona");
+			
 		},
 		success: function(data)
 		{
-			if (data) 
+			if (opcion == true) 
 			{
-				alert("Todo bien");
+				if (data) 
+			{
+				
 				toast1("Atención!!", "Se a modificado el registro a activo", 8000, "Success");
 				loadData();
 			}
+			}
+			
 			else
 			{
 				toast1("DANGER", "Algo anda mal, revisa el codigo en la linea", 8000, "error");
@@ -194,6 +204,7 @@ function reactivaPersona(id)
 
 	 
 $(document).on('click', '#btn_insertar', function(e){
+		var opcion = confirm("Desea registrar? verifique que la informacion esta correcta");
 		var info = {primer_ap: $('#primer_ap').val(), segundo_ap: $('#segundo_ap').val(), nombres: $('#nombres').val(), direccion: $('#direccion').val(), telefono: $('#telefono').val() };
 		$.ajax({
 			url:'routes/routePersonas.php',
@@ -265,7 +276,11 @@ $(document).on('keyup', '#txt_busqueda', function(e){
 
 
 
-
+function Limpieza()
+{
+	document.getElementById("FormularioModificar").reset();
+	document.getElementById("FormularioGuardar").reset();
+}
 
 
 

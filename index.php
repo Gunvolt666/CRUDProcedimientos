@@ -69,29 +69,31 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div class="modal-body">
+
+      <form id="FormularioGuardar" >
+         <div class="modal-body">
         <div class="row">
 
         <div class="col-lg-7">
         <label>Primer Apellido</label>
-        <input class="form-control" type="text" id="primer_ap" name="primer_ap ">
+        <input required="" maxlength="9" class="form-control" type="text" id="primer_ap" name="primer_ap "  >
       </div>
 
       <div class="col-lg-7">
         <label>Segundo Apellido</label>
-        <input class="form-control" type="text" id="segundo_ap" name="segundo_ap ">
+        <input required="" maxlength="9" class="form-control" type="text" id="segundo_ap" name="segundo_ap "  >
       </div>
       <div class="col-lg-7">
         <label>Nombres</label>
-        <input class="form-control" type="text" id="nombres" name="nombres ">
+        <input required="" maxlength="25" class="form-control" type="text" id="nombres" name="nombres "  >
       </div>
       <div class="col-lg-7">
         <label>Direccion</label>
-        <input class="form-control" type="text" id="direccion" name="direccion">
+        <input required="" class="form-control" type="text" id="direccion" name="direccion"  >
       </div>
       <div class="col-lg-7">
         <label>Telefono</label>
-        <input class="form-control" type="text" id="telefono" name="telefono ">
+        <input required="" maxlength="10" class="form-control" type="text" id="telefono" name="telefono "  >
       </div>
      
       </div>
@@ -100,8 +102,11 @@
       
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-        <button id="btn_insertar" type="button" class="btn btn-primary">Guardar Registro</button>
+        <button id="btn_insertar" onclick="Limpieza()" type="button" class="btn btn-primary">Guardar Registro</button>
       </div>
+      </form>
+
+     
     </div>
   </div>
 </div>
@@ -118,36 +123,35 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div class="modal-body">
-      	<label>ID del registro</label>
-        <input type="text" id="id" name="id">
-      </div>
-      <div class="modal-body">
-      	<label>Primer Apellido</label>
-        <input type="text" id="primer_ap_m" name="primer_ap_m	">
+      <form id="FormularioModificar" >
+        <div class="modal-body">
+        <label>Primer Apellido</label>
+        <input maxlength="10" type="text" id="primer_ap_m" name="primer_ap_m  ">
       </div>
 
       <div class="modal-body">
-      	<label>Segundo Apellido</label>
-        <input type="text" id="segundo_ap_m" name="segundo_ap_m	">
+        <label>Segundo Apellido</label>
+        <input maxlength="10" type="text" id="segundo_ap_m" name="segundo_ap_m  ">
       </div>
       <div class="modal-body">
-      	<label>Nombres</label>
-        <input type="text" id="nombres_m" name="nombres_m	">
+        <label>Nombres</label>
+        <input maxlength="30" type="text" id="nombres_m" name="nombres_m  ">
       </div>
       <div class="modal-body">
-      	<label>Direccion</label>
-        <input type="text" id="direccion_m" name="direccion_m">
+        <label>Direccion</label>
+        <input  type="text" id="direccion_m" name="direccion_m">
       </div>
       <div class="modal-body">
-      	<label>Telefono</label>
-        <input type="text" id="telefono_m" name="telefono_m	">
+        <label>Telefono</label>
+        <input maxlength="10" type="text" id="telefono_m" name="telefono_m  ">
       </div>
      
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-        <button id="btn_modificar"  type="button" class="btn btn-primary">Guardar Cambios</button>
+        <button id="btn_modificar" onclick="Limpieza()"  type="button" class="btn btn-primary">Guardar Cambios</button>
       </div>
+      </form>
+      
     </div>
   </div>
 </div>
